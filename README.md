@@ -9,7 +9,7 @@ memory, and logging subsystems within a virtualized environment.
 
 Make sure you have the following installed:
 
-- CMake 3.29 or higher
+- CMake 3.10 or higher
 - A compatible C++23 compiler
 
 ### Cloning the Repository
@@ -34,12 +34,37 @@ cd Polaris
     cmake ..
     ```
 
+#### On Windows (Using Visual Studio)
+
+1. Open the generated solution file (`Polaris.sln`) in Visual Studio.
+2. Build the solution by selecting `Build > Build Solution` in the menu or using the `Ctrl+Shift+B` shortcut.
+
+Alternatively, you can build the solution from the command line using `msbuild`:
+
+```sh
+msbuild Polaris.sln /p:Configuration=Release
+```
+
 ### Running Polaris
 
 Use the following command-line options to run Polaris:
 
 ```sh
 ./Polaris --memory <amount_in_bytes> [--logfile <logfile_path>]
+```
+
+### Command-Line Options
+
+- `-h, --help`: Prints all options
+- `-m, --memory`: Specifies the amount of memory the VM can access (required)
+- `-l, --logfile`: Specifies the output file for the log (optional)
+
+### Example
+
+To run Polaris with 1024MB of memory and output logs to `vm.log`:
+
+```sh
+./Polaris --memory 1073741824 --logfile vm.log
 ```
 
 ## License
